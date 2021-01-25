@@ -567,7 +567,7 @@ RUN pip3 install --upgrade wheel setuptools docker
 # Ensure apt-get won't prompt for selecting options
 ENV DEBIAN_FRONTEND=noninteractive
 
-# libcurl4-openSSL-dev is needed for GCS
+# libcurl4-openSSL-dev, libc-ares-dev and libc-ares2 are needed for GCS
 # python3-dev is needed by Torchvision
 # python3-pip is needed by python backend
 # uuid-dev and pkg-config is needed for Azure Storage
@@ -593,7 +593,8 @@ RUN apt-get update && \
             unzip \
             wget \
             zlib1g-dev \
-            doxygen \
+            libc-ares-dev \
+            libc-ares2 \
             pkg-config \
             uuid-dev && \
     rm -rf /var/lib/apt/lists/*
